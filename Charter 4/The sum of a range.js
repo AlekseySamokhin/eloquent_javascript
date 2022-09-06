@@ -46,15 +46,14 @@ function sum(array) {
 
 // 3
 function range(start, finish, step) {
-	var array = [];
-	var step = step || 1;
+	let array = [];
+
+	step = step || 1;
 
 	if (step < 0) {
-		for (var i = start; i >= finish; i += step)
-            array.push(i);
+		for (let i = start; i >= finish; i += step) array.push(i);
 	} else {
-		for (var i = start; i <= finish; i += step)
-            array.push(i);
+		for (let i = start; i <= finish; i += step) array.push(i);
 	}
 
 	return array;
@@ -62,9 +61,9 @@ function range(start, finish, step) {
 
 function sum(array) {
     let sum = 0;
-    for (let value of array) {
-      total += value;
-    }
+
+    for (let value of array) sum += value;
+
     return sum;
   }
 
