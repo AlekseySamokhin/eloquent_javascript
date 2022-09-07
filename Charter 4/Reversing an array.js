@@ -1,27 +1,4 @@
-// 1
-function reverseArray(array) {
-    let newArray = [];
-
-    for(let i = array.length - 1; i >= 0; i--) {
-        newArray.push(array[i]);
-    }
-    
-    return newArray;
-}
-
-console.log(reverseArray(["A", "B", "C"]));
-
-function reverseArrayInPlace(arrayValue) {
-    const arrayLength = arrayValue.length;
-    
-    for(let i = 0; i < arrayLength; i++) {
-        arrayValue[arrayLength + i] = arrayValue[arrayLength - i - 1];
-    }
-
-    return arrayValue.slice(0, arrayLength);
-}
-
-// 2 
+// 1 
 function reverseArray(array) {
     return array.reduce(function(a, b) {
         return [b].concat(a);
@@ -41,7 +18,17 @@ function reverseArrayInPlace(arrayValue) {
     return arrayValue;
 }
 
-// 3 
+// 2
+function reverseArray(array) {
+    let newArray = [];
+
+    for(let i = array.length - 1; i >= 0; i--) {
+        newArray.push(array[i]);
+    }
+    
+    return newArray;
+}
+
 function reverseArrayInPlace(arrayValue) {
     let newArray = [];
     const arrayLength = arrayValue.length;
