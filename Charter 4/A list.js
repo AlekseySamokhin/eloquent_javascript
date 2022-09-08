@@ -33,7 +33,7 @@ console.log(listToArray(arrayToList([10, 20, 30])));
 
 function prepend(value, rest) {
     return {
-        value: value,
+        value,
         rest: rest 
     }
 }
@@ -48,12 +48,11 @@ function nth(list, index) {
 
   console.log(nth(arrayToList([10, 20, 30]), 1));
 
-
 // 2
 function arrayToList(array) {
-	for (var i = array.length - 1; i >= 0; --i) {
-		var rest = list || null;
-		var list = {};
+	for (let i = array.length - 1; i >= 0; --i) {
+        var rest = list || null;
+        var list = {};
 
 		list.value = array[i];
 		list.rest = rest;
@@ -65,9 +64,9 @@ function arrayToList(array) {
 console.log(arrayToList([10, 20]));
 
 function listToArray(list) {
-	var array = [];
+	let array = [];
 	array.push(list.value);
-	var rest = list.rest;
+	let rest = list.rest;
 
 	while (rest) {
 		array.push(rest.value);
