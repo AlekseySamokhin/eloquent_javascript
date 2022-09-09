@@ -59,27 +59,14 @@ let ANCESTRY_FILE = JSON.stringify([
   console.log(average(difference));
 
 // 2
-
 let ancestry2 = JSON.parse(ANCESTRY_FILE);
-console.log(ancestry2)
 
 function average(array) {
-  function plus(a, b) { return a + b; }
+  function plus(a, b) { return a + b; };
   return array.reduce(plus) / array.length;
 }
 
 let byName2 = {};
-
-// [
-//     {
-//       name: 'Carolus Haverbeke',
-//       sex: 'm',
-//       born: 1832,
-//       died: 1905,
-//       father: 'Carel Haverbeke',
-//       mother: 'Maria van Brussel'
-//     },
-// ]
 
 ancestry2.forEach(function(person) {
     byName[person.name] = person;
@@ -92,7 +79,7 @@ for(let i = 0; i < ancestry2.length; i++) {
     
     if(mother != null) {
         let age = ancestry2[i].born - mother.born;
-        differenceAge.push(age)
+        differenceAge.push(age);
     }
 }
 
