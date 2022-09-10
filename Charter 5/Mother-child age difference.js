@@ -84,3 +84,32 @@ for(let i = 0; i < ancestry2.length; i++) {
 }
 
 console.log(average(differenceAge));
+
+// 3
+
+let ancestry3 = JSON.parse(ANCESTRY_FILE);
+
+function average(array) {
+  function plus(a, b) { return a + b; };
+  return array.reduce(plus) / array.length;
+}
+
+let byName3 = {};
+
+ancestry2.forEach(function(person) {
+    byName[person.name] = person;
+});
+
+let result = [];
+
+for (let name in byName) {
+  const person = byName[name];
+
+  const mother = ancestry3.find(p => p.name === person.mother);
+
+  if(mother) {
+    result.push(person.born - mother.born);
+  }
+}
+
+console.log(average(result));
