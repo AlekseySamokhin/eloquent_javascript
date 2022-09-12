@@ -43,24 +43,29 @@ let ANCESTRY_FILE = JSON.stringify([
 
 const ancestry = JSON.parse(ANCESTRY_FILE);
 
-function average(array) {
-function plus(a, b) { return a + b; }
-return array.reduce(plus) / array.length;
+function average(a, b) {
+  return parseFloat((a / b).toFixed(1));
 }
 
 let centuryAge = {};
 
-for(let i = 0; i < ancestry.length; i++) {
-const age = ancestry[i].died - ancestry[i].born;
-const century = Math.ceil(ancestry[i].died / 100);
-if(century in centuryAge) {
-  centuryAge[century].push(age);
-} else {
-  centuryAge[century] = [];
-  centuryAge[century].push(age);
-}
+ancestry.forEach(function(person) {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  if(century in centuryAge) {
+    centuryAge[century][0] += age;
+    centuryAge[century][1] += 1;
+  } else {
+    centuryAge[century] = [age, 1];
+  }
+})
+
+for (let century in centuryAge) {
+  const centuryAvg = centuryAge[century][0] / centuryAge[century][1];
+
+  console.log(century + ": " + parseFloat(centuryAvg.toFixed(1)));
 }
 
-for (var century in centuryAge) {
-console.log(century + ": " + parseFloat(average(centuryAge[century]).toFixed(1)));
-}
+
+
